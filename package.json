@@ -1,6 +1,6 @@
 {
   "name": "witty-creatures",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "",
   "workspaces": [
@@ -13,6 +13,8 @@
     "bootstrap": "yarn lerna bootstrap",
     "build": "yarn lerna run build --stream --concurrency 1",
     "test": "yarn lerna run test --stream ",
+    "test:unit": "yarn lerna run test:unit --stream",
+    "test:e2e": "yarn lerna run test:e2e:ci --stream",
     "lint": "yarn lerna run lint --stream --concurrency 1",
     "clean": "yarn lerna run clean --concurrency 4",
     "prepare": "lerna run prepare",
