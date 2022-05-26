@@ -1,5 +1,5 @@
 import { CollectionInfo, Db, MongoClient } from 'mongodb'
-import Fastify from 'fastify'
+import Fastify, { InjectOptions } from 'fastify'
 import { app } from '../src/app'
 import { FastifyInstance } from 'fastify'
 
@@ -60,10 +60,10 @@ async function authenticatePlayer(key: string): Promise<string> {
 }
 
 async function serverInject(
-  opts: {},
-  cb: (error, result) => Promise<void> | void
+  opts: InjectOptions,
+  cb: (_error, _result) => Promise<void> | void
 ): Promise<null> {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     server.inject(opts, async (error, result) => {
       await cb(error, result)
 

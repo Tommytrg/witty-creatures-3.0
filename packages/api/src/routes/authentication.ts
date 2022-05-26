@@ -4,10 +4,7 @@ import { PLAYER_MINT_TIMESTAMP } from '../constants'
 import { ClaimPlayerParams, DbPlayerVTO } from '../types'
 import { isTimeToMint } from '../utils'
 
-const authentication: FastifyPluginAsync = async (
-  fastify,
-  opts
-): Promise<void> => {
+const authentication: FastifyPluginAsync = async (fastify): Promise<void> => {
   if (!fastify.mongo.db) throw Error('mongo db not found')
 
   const { playerModel } = fastify

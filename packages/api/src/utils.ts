@@ -77,7 +77,7 @@ export function generateUsernameList(count: number): Array<string> {
   let counter = 1
 
   while (usernames.size < count) {
-    let username = uniqueNamesGenerator({
+    const username = uniqueNamesGenerator({
       dictionaries: [adjectives, animals],
       seed: counter,
       separator: '-',

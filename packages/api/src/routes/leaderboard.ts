@@ -3,10 +3,7 @@ import { FastifyPluginAsync, FastifyRequest } from 'fastify'
 import { LeaderboardParams, LeaderboardResponse } from '../types'
 import { Player } from '../domain/player'
 
-const leaderboard: FastifyPluginAsync = async (
-  fastify,
-  opts
-): Promise<void> => {
+const leaderboard: FastifyPluginAsync = async (fastify): Promise<void> => {
   if (!fastify.mongo.db) throw Error('mongo db not found')
 
   const { playerModel } = fastify

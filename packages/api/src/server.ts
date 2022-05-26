@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 require('dotenv').config()
 
 import Fastify from 'fastify'
@@ -24,7 +25,7 @@ server
     console.log('[Server] ECDSA public Key: ', account.address)
     console.log('[Server] Non-sensitive config:', constants)
 
-    server.listen(4000, '0.0.0.0', function (err, address) {
+    server.listen(4000, '0.0.0.0', function (err) {
       if (err) {
         server.log.error(err)
         process.exit(1)

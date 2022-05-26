@@ -18,10 +18,7 @@ import {
   printRemainingMillis,
 } from '../utils'
 
-const interactions: FastifyPluginAsync = async (
-  fastify,
-  opts
-): Promise<void> => {
+const interactions: FastifyPluginAsync = async (fastify): Promise<void> => {
   if (!fastify.mongo.db) throw Error('mongo db not found')
 
   const { playerModel, interactionModel } = fastify

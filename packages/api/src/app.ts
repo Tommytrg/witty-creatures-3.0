@@ -80,6 +80,7 @@ const app: FastifyPluginAsync<AppOptions> = async (
   })
 
   // CORS
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
   fastify.register(require('@fastify/cors'), {
     origin: '*',
     methods: ['GET', 'POST'],
@@ -96,6 +97,7 @@ const app: FastifyPluginAsync<AppOptions> = async (
     options: opts,
   })
 
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
   fastify.register(require('@fastify/static'), {
     root: join(__dirname, '../public'),
     // prefix: '/public/', // optional: default '/'

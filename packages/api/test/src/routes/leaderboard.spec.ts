@@ -82,7 +82,7 @@ describe('Route /leaderboard', () => {
           expect(players.players.length).toBe(5)
           expect(players.total).toBe(5)
 
-          players.players.forEach((player, index) => {
+          players.players.forEach((player) => {
             expect(player.username).toBeTruthy()
             if (player.username === initialPlayers[1].username) {
               expect(player.score).toBe(800)

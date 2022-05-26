@@ -16,7 +16,7 @@ export class Repository<T> {
   }
 
   async bootstrap(
-    createElement: (_: null, index: number) => T,
+    createElement: (_: null, _index: number) => T,
     numberOfElementsToCreate: number,
     force: boolean
   ) {
@@ -64,10 +64,10 @@ export class Repository<T> {
   }
 
   public async getById(id: ObjectId | string): Promise<WithId<T> | null> {
-    // TODO: Remove any
+    // TODO: Remove unknown
     const filter: Filter<T> = {
       _id: typeof id === 'string' ? new ObjectId(id) : id,
-    } as any
+    } as unknown as Filter<T>
     const findOneResult = this.collection.findOne(filter)
 
     return findOneResult

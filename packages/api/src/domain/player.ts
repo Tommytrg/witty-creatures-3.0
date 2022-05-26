@@ -30,7 +30,7 @@ export class Player {
     lastInteractionOut: Interaction | null
   }): ExtendedPlayerVTO {
     // Get all Player attributes except token
-    const { token, ...protectedplayerVTO } = this.toDbVTO()
+    const { ...protectedplayerVTO } = this.toDbVTO()
     return {
       player: {
         ...protectedplayerVTO,
@@ -44,7 +44,7 @@ export class Player {
     }
   }
 
-  toDbVTO(shoWToken: boolean = false): DbPlayerVTO {
+  toDbVTO(shoWToken = false): DbPlayerVTO {
     const vto = {
       lastInteractionIn: this.lastInteractionIn,
       lastInteractionOut: this.lastInteractionOut,
@@ -63,7 +63,7 @@ export class Player {
   static getLeaderboard(
     players: Array<Player>,
     totalPlayers: number,
-    paginationOffset: number = 0
+    paginationOffset = 0
   ): { players: Array<PlayerLeaderboardInfo>; total: number } {
     return {
       players: players

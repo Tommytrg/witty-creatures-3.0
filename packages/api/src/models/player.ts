@@ -24,7 +24,7 @@ export class PlayerModel {
 
   public createPlayer(
     index: number,
-    getUsername: (index: number) => string
+    getUsername: (_index: number) => string
   ): Player {
     // Generate the player data.
     // First we derive a deterministic 32-bytes sequence of bytes from a fixed salt plus the player nonce.
@@ -38,7 +38,7 @@ export class PlayerModel {
     // The rest of the bytes of the seed will be used for seeding the unique names generator.
     const username: string = getUsername(index)
     const nft: Array<string> = []
-    const score: number = 0
+    const score = 0
     const color = getColorFromIndex(index)
 
     return new Player({
@@ -58,7 +58,7 @@ export class PlayerModel {
    */
   public async bootstrap(
     count: number,
-    force: boolean = false
+    force = false
   ): Promise<Array<Player> | null> {
     // Generate list of unique usernames to avoid name collisions
     const usernamesList = generateUsernameList(count)
