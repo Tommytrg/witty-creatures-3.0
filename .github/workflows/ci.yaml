@@ -2,7 +2,7 @@ name: Run lint, test and build
 
 env:
   CI: true
-  MONGO_INITDB_DATABASE: 'db'
+  MONGO_INITDB_DATABASE: 'database'
 
 on: pull_request
 jobs:
@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - run: printenv
       - uses: actions/checkout@v2
 
       - uses: actions/setup-node@v3
@@ -18,10 +19,13 @@ jobs:
           cache: 'yarn'
 
       - name: Start MongoDB
-        uses: supercharge/mongodb-github-action@1.6.0
+        uses: supercharge/mongodb-github-action@1.7.0
         with:
           mongodb-version: '4.0'
           mongodb-port: 27017
+          mongodb-username: username 
+          mongodb-password: password 
+          mongodb-db: database 
 
       - run: yarn
       - run: yarn bootstrap
