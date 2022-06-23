@@ -7,7 +7,7 @@ let server: FastifyInstance
 
 let client = new MongoClient(
   process.env.MONGO_URI ||
-    'mongodb://your_username:your_password@localhost:27017/database'
+    'mongodb://username:password@localhost:27017/database'
 )
 let db: Db
 
