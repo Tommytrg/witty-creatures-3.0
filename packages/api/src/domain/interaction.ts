@@ -1,5 +1,6 @@
 import { DbInteractionVTO } from '../types'
 
+// example
 export class Interaction {
   public from: string
   public to: string
@@ -12,7 +13,7 @@ export class Interaction {
     this.to = vto.to
     this.points = vto.points
     this.timestamp = vto.timestamp
-    this.ends = vto.ends
+    this.ends = vto.ends || 0
   }
 
   toVTO(): DbInteractionVTO {
